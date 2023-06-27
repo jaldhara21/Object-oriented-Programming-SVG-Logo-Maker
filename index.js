@@ -3,7 +3,6 @@ const inquirer = require("inquirer");
 const { Circle, Square, Triangle } = require("./lib/shapes");
 const fs = require("fs");
 
-
 class Svg {
   constructor() {
     // Stores the SVG text and shape element markup
@@ -11,7 +10,7 @@ class Svg {
     this.shapeElement = "";
   }
   render() {
-    return `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">${this.shapeElement}${this.textElement}</svg>`;
+    return `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">${this.shapeElement}${this.textElement}</svg>`;
   }
   // Set the SVG text element markup with the provided text and color
   setTextElement(text, color) {
@@ -33,18 +32,18 @@ const questions = [
   {
     type: "input",
     name: "text-color",
-    message: "Text color: Enter a color keyword (OR a hexadecimal number): ",
+    message: "Text Color: Enter a color keyword (OR a hexadecimal number): ",
   },
   {
     type: "list",
-    name: "shape",
-    message: "Choose a shape: ",
-    choices: ["circle", "triangle", "square"],
+    name: "pixel-image",
+    message: "Choose which pixel image you would like?",
+    choices: ["Circle", "Triangle", "Square"],
   },
   {
     type: "input",
-    name: "shape's color",
-    message: "enter a color keyword (OR a hexadecimal number): ",
+    name: "shape",
+    message: "Shape Color: Enter a color keyword (OR a hexadecimal number): ",
   },
 ];
 // Function to write data to file
@@ -79,14 +78,14 @@ async function init() {
   user_font_color = answers["text-color"];
   console.log("User font color: [" + user_font_color + "]");
 
-  user_shape_type = answers.shape;
-  console.log("User entered shape: [" + user_shape_type + "]");
-
-  user_shape_color = answers["shape's color"];
+  user_shape_color = answers.shape;
   console.log("User shape color: [" + user_shape_color + "]");
 
+  user_shape_type = answers["pixel-image"];
+  console.log("User entered shape: [" + user_shape_type + "]");
+
   let user_shape;
-  if (user_shape_type === "Square" || user_shape_type === "square") {
+  if (user_shape === "Square" || user_shape_type === "square") {
     user_shape = new Square();
     console.log("User selected Square shape");
   } else if (user_shape_type === "Circle" || user_shape_type === "circle") {
@@ -108,7 +107,7 @@ async function init() {
   console.log("Displaying shape:\n\n" + svgString);
   console.log("Shape generation complete!");
   console.log("Writing shape to file...");
-  writeToFile("svg_file", svgString);
+  writeToFile(svg_file, svgString);
 }
 
 init();
