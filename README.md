@@ -16,7 +16,7 @@ The application enables users to enter inputs into a inquirer prompt in order to
 - [What I Learned](#What-I-Learned)
 - [Continued Development](#Continued-Development)
 - [License](#License)
-- [Acknowledgments](#Acknowledgments)
+- [Questions](#Questions)
 
 # Overview
 
@@ -100,6 +100,7 @@ https://drive.google.com/file/d/16Mx_t154M1xIQRct5vsmlRe6C5XfU1Bs/view
 - Inquirer.js: [Version 8.2.4](https://www.npmjs.com/package/inquirer/v/8.2.4)
 - License Badge: [Shields.io](https://shields.io/)
 - Visual Studio Code: [Website](https://code.visualstudio.com/)
+- Visual Studio Code extension: [Website](https://marketplace.visualstudio.com/items?itemName=jock.svg)
 
 ## What I Learned
 
